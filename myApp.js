@@ -1,5 +1,13 @@
-require('dotenv').config();
+// const { Mongoose } = require("mongoose");
+require("dotenv").config();
+const mongoose = require("mongoose");
 
+//connect to mongoose
+
+mongoose.connect(
+  "mongodb+srv://BlueJersey:Houda_2022@cluster0.swe5pqd.mongodb.net/?retryWrites=true&w=majority",
+  { dbName: "fcc", useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 let Person;
 
