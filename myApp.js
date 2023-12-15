@@ -32,7 +32,7 @@ const personSchema = new mongoose.Schema({
   favoriteFoods: [String],
 });
 
-console.log(personSchema);
+// console.log(personSchema);
 Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
