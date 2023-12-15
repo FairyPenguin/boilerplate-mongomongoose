@@ -4,12 +4,37 @@ const mongoose = require("mongoose");
 
 //connect to mongoose
 
-mongoose.connect(
-  "mongodb+srv://BlueJersey:Houda_2022@cluster0.swe5pqd.mongodb.net/?retryWrites=true&w=majority",
-  { dbName: "fcc", useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: "fcc",
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.connection.once("connected", () => {
+  console.log("MongoDB Connected!");
+});
+
+// if (mongoose.connection.readyState === 1) {
+//   console.log("Connected to MongoDB");
+// }
 
 let Person;
+
+const personSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  age: {
+    type: Number,
+    default: 0,
+  },
+
+  favoriteFoods: [String],
+});
+
+const person = mongoose.model("person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
