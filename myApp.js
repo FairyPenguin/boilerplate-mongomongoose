@@ -10,9 +10,9 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
-mongoose.connection.once("connected", () => {
-  console.log("MongoDB Connected!");
-});
+// mongoose.connection.once("connected", () => {
+//   console.log("MongoDB Connected!");
+// });
 
 // if (mongoose.connection.readyState === 1) {
 //   console.log("Connected to MongoDB");
@@ -34,6 +34,7 @@ const personSchema = new mongoose.Schema({
   favoriteFoods: [String],
 });
 
+console.log(personSchema);
 Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
