@@ -43,14 +43,17 @@ const createAndSavePerson = async (done) => {
     favoriteFoods: ["pizza", "hamburger"],
   });
 
-  try {
-    await someOne.save();
-    console.log("Document created successfully!");
-  } catch (error) {
-    console.log(error);
-    if (error) return done(error);
-  }
-  done(null /*, data*/);
+  // try {
+  //   await someOne.save();
+  //   console.log("Document created successfully!");
+  // } catch (error) {
+  //   console.log(error);
+  //   if (error) return done(error);
+  // }
+  someOne.save(function (err, data) {
+    if (err) return console.error(err);
+    done(null, data);
+  });
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
