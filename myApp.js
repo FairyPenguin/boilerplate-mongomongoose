@@ -79,8 +79,7 @@ const findPeopleByName = (personName, done) => {
 
 const findOneByFood = (food, done) => {
   Person.findOne({ favoriteFoods: food }, function (err, data) {
-    if (err) return console.error(err);
-
+    if (err) return console.log(err);
     done(null, data);
   });
 };
