@@ -59,18 +59,15 @@ const createAndSavePerson = (done) => {
 const createManyPeople = (arrayOfPeople, done) => {
   arrayOfPeople = [
     {
-      noOne: new Person({
-        name: "noOne",
-        age: 34,
-        favoriteFoods: ["Creep", "pie"],
-      }),
+      name: "noOne",
+      age: 34,
+      favoriteFoods: ["Creep", "pie"],
     },
+
     {
-      noBody: new Person({
-        name: "noBody",
-        age: 45,
-        favoriteFoods: ["Fruit Salad", "Apples"],
-      }),
+      name: "noBody",
+      age: 45,
+      favoriteFoods: ["Fruit Salad", "Apples"],
     },
   ];
 
