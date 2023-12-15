@@ -6,8 +6,6 @@ const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URI, {
   dbName: "fcc",
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
 });
 
 // mongoose.connection.once("connected", () => {
