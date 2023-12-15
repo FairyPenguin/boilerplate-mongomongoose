@@ -40,11 +40,9 @@ const createAndSavePerson = (done) => {
     age: 30,
     favoriteFoods: ["pizza", "hamburger"],
   });
-  someOne.save(function (err,data) {
-    if (err) return done(err);
-    done(null /*, data*/);
-    console.log("Document created successfully!");
-  });
+  someOne.save();
+
+  console.log("Document created successfully!");
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
