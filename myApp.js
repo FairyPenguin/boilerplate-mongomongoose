@@ -6,11 +6,13 @@ const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URI, {
   dbName: "fcc",
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-// mongoose.connection.once("connected", () => {
-//   console.log("MongoDB Connected!");
-// });
+mongoose.connection.once("connected", () => {
+  console.log("MongoDB Connected!");
+});
 
 // if (mongoose.connection.readyState === 1) {
 //   console.log("Connected to MongoDB");
