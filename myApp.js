@@ -34,15 +34,21 @@ const personSchema = new mongoose.Schema({
 
 Person = mongoose.model("Person", personSchema);
 
-const createAndSavePerson = (done) => {
+const createAndSavePerson = async (done) => {
   const someOne = new Person({
     name: "John",
     age: 30,
     favoriteFoods: ["pizza", "hamburger"],
   });
-  someOne.save();
 
-  console.log("Document created successfully!");
+  try {
+    await someOne.save();
+    console.log("Document created successfully!");
+  } catch (error) {
+    console.log(error);
+    if (error) return done(error);
+  }
+  done(null /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
